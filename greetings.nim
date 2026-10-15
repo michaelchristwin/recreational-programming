@@ -1,8 +1,12 @@
-from std/strutils import parseInt
+proc yes(question: string): bool =
+  echo question, " (y/n)"
+  while true:
+    case readLine(stdin)
+    of "y", "Y", "yes", "Yes": return true
+    of "n", "N", "no", "No": return false
+    else: echo "Please be clear: yes or no"
 
-echo "A number please: "
-let n = parseInt(readLine(stdin))
-case n
-of 0..2, 4..7: echo "The number is in the set: {0, 1, 2, 4, 5, 6, 7}" 
-of 3,8: echo "The number is 3 or 8"
-else: discard
+if yes("Should I delete all your important files?"):
+  echo "I'm sorry Dave, I'm afraid I can't do that."
+else:
+  echo "I think you know what the problem is just as well as I do."
