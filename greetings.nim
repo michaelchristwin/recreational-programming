@@ -1,3 +1,8 @@
-echo "What's your name"
+echo "What's your name?"
 let name: string = readLine(stdin)
-echo "Hi, ", name, "!"
+if name == "":
+    echo "Poor soul, you lost your name"
+elif name == "name":
+    echo "LMAO, your name is name"
+else:
+    echo "Hi, ", name, "!"
